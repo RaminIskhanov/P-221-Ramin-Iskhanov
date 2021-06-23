@@ -8,7 +8,7 @@ namespace Human_Resources.Models
 {
     class Employee
     {
-        public int No;
+        public string No;
         public static int Count { get; set; } = 1000;
 
         public string FullName;
@@ -20,13 +20,9 @@ namespace Human_Resources.Models
 
         public double Salary { get; set; }
 
-        public Employee()
-        {
-            Count++;
-            No = Count;
-        }
+        
 
-        public Employee(string name, string surname, string position, double salary, string departmentname ):this()
+        public Employee(string name, string surname, string position, double salary, string departmentname )
         {
             Name = name;
             SurName = surname;
@@ -36,8 +32,13 @@ namespace Human_Resources.Models
             DepartmentName = departmentname;
 
             FullName = Name + " " + SurName;
+            Count++;
 
-            //FullName-de Name ve Surname bolmesini 
+
+            No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString(); //ilk 2 herfi gostermesi ucun !!!
+
+
+            //FullName-i Name ve Surname bolmesini assign etmesi ucun verilmishdir!!!
 
         }
         public override string ToString()

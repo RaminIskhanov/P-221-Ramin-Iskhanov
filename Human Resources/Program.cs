@@ -11,11 +11,15 @@ namespace Human_Resources
     {
         static void Main(string[] args)
         {
-            Employee employee1 = new Employee("Ramin", "Iskhanov", "DishHekimi", 15000, "Hekim");
+
+            // YOXLAMAQ!!!
+            //Employee employee1 = new Employee("Ramin", "Iskhanov", "DishHekimi", 15000, "Stomotologiya");
             
-            Employee employee2 = new Employee("Pervin", "Iskhanov", "DishHekimi", 15000, "Hekim");
-            Console.WriteLine(employee1.ToString());
-            Console.WriteLine(employee2.ToString());
+            //Employee employee2 = new Employee("Pervin", "Iskhanov", "DishHekimi", 15000, "Stomotologiya");
+            //Console.WriteLine(employee1.ToString());
+            //Console.WriteLine(employee2.ToString());
+
+           
 
         }
     }
