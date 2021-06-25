@@ -10,39 +10,45 @@ namespace Human_Resources.Services
 {
     class HumanResourcemanager : IHumanResourceManager
     {
-        private Department _department;
-
-       
-        public List<Department> department { get ; set; }
+        public List<Department> departments { get; set; }
 
         public HumanResourcemanager()
         {
-            department = new List<Department>();
+            departments = new List<Department>();
         }
-        public void AddDepartment(string name, int workerlimit, int salarylimit)
-        {
-            department = new List<Department>();
 
-            if (department.Any(n=> n.Name==name && n.WorkerLimit == workerlimit && n.SalaryLimit == salarylimit))
-            {
-                department.Add(_department);
-            }
+        public void AddDepartment()
+        {
            
         }
-        
-        // Ashagidaki metodlarda Departament yaratmaq ucun lazim olan melumatlar eks olunmushdur
-        public void AddEmployee(string fullname, string position, int salary, string departmentname)
-        
+
+        public void AddEmployee()
+        {
+            
+        }
+       
+
+        public List<Department> Departments()
         {
             throw new NotImplementedException();
         }
 
-        public void EditDepartaments(string name, string newName)
+        public void EditDepartaments()
         {
             throw new NotImplementedException();
         }
 
-        public void EditEmployee(string no, int salary, string position)
+        public void EditEmployee()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetDepartment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveEmployee()
         {
             throw new NotImplementedException();
         }
@@ -52,11 +58,9 @@ namespace Human_Resources.Services
             throw new NotImplementedException();
         }
 
-        public void RemoveEmployee(string no, string departmentname)
+        public List<Employee> GetEmployees()
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

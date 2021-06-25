@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Human_Resources.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,22 @@ namespace Human_Resources.Models
 {
      class Department 
     {
+        
+
         public string Name { get; set; }
         public int WorkerLimit { get; set; }
         public double SalaryLimit { get; set; }
-        public List<Employee> employees { get; set; }
+        public List<Employee> employees { get; set; } // Departamentde ishcilerin siyahisi...
+        public object Employees { get; internal set; }
 
-        public Department(string name, int workerlimit, int salarylimit)
+        public Department(string name, int workerlimit, double salarylimit)
         {
             this.Name = name;
             this.WorkerLimit = workerlimit;
             this.SalaryLimit =salarylimit;
         }
-        
+
+      
 
         public double CalcSalaryAvarage(List<Employee> employees)
         {
@@ -35,6 +40,9 @@ namespace Human_Resources.Models
             // Departamentdeki ishcilerin maash ortalamaasinin hesablanmasi !!!
         }
 
-        
+        public static implicit operator Department(HumanResourcemanager v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
