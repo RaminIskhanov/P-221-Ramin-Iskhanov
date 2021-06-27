@@ -28,11 +28,6 @@ namespace Human_Resources.Services
         }
        
 
-        public List<Department> Departments()
-        {
-            throw new NotImplementedException();
-        }
-
         public void EditDepartaments()
         {
             throw new NotImplementedException();

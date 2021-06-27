@@ -296,7 +296,6 @@ namespace Human_Resources
             string newemployeedepartmentname = "";
             bool positionloop = true;
             bool salaryloop = true;
-            bool departmentloop = true;
             bool departmentNameLoop = true;
             Console.WriteLine("Yeni iscinin veifesini daxil edin:");
             while (positionloop)
@@ -374,7 +373,6 @@ namespace Human_Resources
         {
             bool noloop = true;
             string editno = "";
-            bool editsalary = true;
             bool newsalaryloop = true;
             bool newpositionloop = true;
             double newsalary = 0;

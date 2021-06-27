@@ -9,7 +9,7 @@ namespace Human_Resources.Models
     class Employee
     {
         public string No;
-        public static int Count { get; set; } = 1000;
+        public static int Count { get; set; } = 1000; // ishci nomresinde baslangic deyerinin teyin edilmesi..
 
         public string FullName;
         public string Name { get; set; }
@@ -20,24 +20,20 @@ namespace Human_Resources.Models
 
         public double Salary { get; set; }
 
-        
-
         public Employee(string name, string surname, string position, double salary, string departmentname )
         {
             Name = name;
             SurName = surname;
-
             Position = position;
             Salary = salary;
             DepartmentName = departmentname;
 
-            FullName = Name + " " + SurName;
+            FullName = Name + " " + SurName;  //FullName-i Name ve Surname bolmesini assign etmesi ucun verilmishdir..
             Count++;
 
 
-            No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString(); //ilk 2 herfi gostermesi ucun !!!
+            No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString(); // departament adinin ilk 2 herfinin gostermesi ucun !!!
 
-            //FullName-i Name ve Surname bolmesini assign etmesi ucun verilmishdir!!!
         }
 
         public override string ToString()

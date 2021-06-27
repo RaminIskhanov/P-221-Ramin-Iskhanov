@@ -21,8 +21,5 @@ namespace Human_Resources.Interface
 
         void RemoveEmployee();
 
-        
-
-
     }
 }
