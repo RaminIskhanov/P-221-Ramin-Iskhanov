@@ -19,30 +19,34 @@ namespace Human_Resources.Models
 
         public Department(string name, int workerlimit, double salarylimit)
         {
-            this.Name = name;
-            this.WorkerLimit = workerlimit;
-            this.SalaryLimit =salarylimit;
+            Employees = new List<Employee>();
+            Name = name;
+            WorkerLimit = workerlimit;
+            SalaryLimit = salarylimit;
         }
 
-      
 
-        public double CalcSalaryAvarage(List<Employee> employees)
+        public double CalcSalaryAvarege() //Departmentdeki Iscilerin maas ortalamasinin hesablanmasi
         {
-            double avarage;
-            double sum=0;
+            double avarage = 0;
+            double sum = 0;
             foreach (Employee item in employees)
             {
                 sum += item.Salary;
             }
-            avarage = sum / employees.Count;
-            return avarage;
+            if (employees.Count != 0)
+            {
+                avarage = sum / employees.Count;
+                return avarage;
+            }
+            else
+            {
+                return 0; // departamentde iwci elave olunmadiqda console da Nan deyl 0 gostersin deye 
+            }
+            
 
-            // Departamentdeki ishcilerin maash ortalamaasinin hesablanmasi !!!
         }
 
-        public static implicit operator Department(HumanResourcemanager v)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

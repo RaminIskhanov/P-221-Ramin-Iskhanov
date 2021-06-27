@@ -19,12 +19,12 @@ namespace Human_Resources.Services
 
         public void AddDepartment()
         {
-           
+            throw new NotImplementedException();
         }
 
         public void AddEmployee()
         {
-            
+            throw new NotImplementedException();
         }
        
 
@@ -53,14 +53,6 @@ namespace Human_Resources.Services
             throw new NotImplementedException();
         }
 
-        public List<Department> GetDepartments()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetEmployees()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

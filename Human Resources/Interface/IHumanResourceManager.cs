@@ -9,10 +9,7 @@ namespace Human_Resources.Interface
 {
     interface IHumanResourceManager
     {
-        List<Department> GetDepartments();
-
-
-        List<Employee> GetEmployees(); // employee list
+        List<Department> departments { get; set; }
 
         void AddDepartment();
         void EditDepartaments();

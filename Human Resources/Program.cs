@@ -67,9 +67,7 @@ namespace Human_Resources
 
             foreach (Department item in humanResourceManager.departments)
             {
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.employees.Count);
-                Console.WriteLine(item.CalcSalaryAvarage(item.employees));
+                Console.WriteLine($"Department name: {item.Name}, Salary limit:{item.SalaryLimit}, Worker limit:{item.WorkerLimit},Avarage Salary:{item.CalcSalaryAvarege()}, Employees Count: {item.employees.Count}");
             }
         }
 

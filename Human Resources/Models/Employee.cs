@@ -12,11 +12,6 @@ namespace Human_Resources.Models
         public static int Count { get; set; } = 1000;
 
         public string FullName;
-        private string newemployename;
-        private string newemployeesurname;
-        private string newemployeeposition;
-        private double newemployeesalary;
-
         public string Name { get; set; }
         public string SurName { get; set; }
         public string Position { get; set; }
@@ -42,17 +37,7 @@ namespace Human_Resources.Models
 
             No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString(); //ilk 2 herfi gostermesi ucun !!!
 
-
             //FullName-i Name ve Surname bolmesini assign etmesi ucun verilmishdir!!!
-
-        }
-
-        public Employee(string newemployename, string newemployeesurname, string newemployeeposition, double newemployeesalary)
-        {
-            this.newemployename = newemployename;
-            this.newemployeesurname = newemployeesurname;
-            this.newemployeeposition = newemployeeposition;
-            this.newemployeesalary = newemployeesalary;
         }
 
         public override string ToString()
