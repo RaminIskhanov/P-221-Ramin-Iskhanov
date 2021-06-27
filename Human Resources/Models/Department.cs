@@ -15,11 +15,11 @@ namespace Human_Resources.Models
         public int WorkerLimit { get; set; }
         public double SalaryLimit { get; set; }
         public List<Employee> employees { get; set; } // Departamentde ishcilerin siyahisi...
-        public object Employees { get; internal set; }
+       
 
         public Department(string name, int workerlimit, double salarylimit)
         {
-            Employees = new List<Employee>();
+            employees = new List<Employee>();
             Name = name;
             WorkerLimit = workerlimit;
             SalaryLimit = salarylimit;
