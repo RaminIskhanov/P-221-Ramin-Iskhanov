@@ -9,7 +9,7 @@ namespace Human_Resources.Models
     class Employee
     {
         public string No;
-        public static int Count { get; set; } = 1000; // ishci nomresinde baslangic deyerinin teyin edilmesi..
+        public static int Count { get; set; } = 1000; 
 
         public string FullName;
         public string Name { get; set; }

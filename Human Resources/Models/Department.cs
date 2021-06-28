@@ -41,7 +41,7 @@ namespace Human_Resources.Models
             }
             else
             {
-                return 0; // departamentde iwci elave olunmadiqda console da Nan deyl 0 gostersin deye 
+                return 0; // departamentde iwci elave olunmadiqda console da 0 gostersin..
             }
             
 

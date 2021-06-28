@@ -87,6 +87,7 @@ namespace Human_Resources
                 try
                 {
                     departmentname = Console.ReadLine();
+
                     if (string.IsNullOrEmpty(departmentname) == false && departmentname.Length >= 2)
                     {
                         nameloop = false;
@@ -146,10 +147,11 @@ namespace Human_Resources
             }
             Department department = new Department(departmentname, departmentworkerlimit, departsalarylimit);
             humanResourceManager.departments.Add(department);
-
+            //istifadeci terefinden verilen deyerlerin yeni yaratdigimiz departmentde assign etmek ucun 
         }
         public static void EditDepartment(HumanResourcemanager humanresourcemanager)
         {
+            // Loop-lar istifadeci terefinden verilen deyerlerin yoxlanilmasi ucun qeyd edilmishdir!!!
 
             string olddepartmentname = "";
             string newdepartmentname = "";
@@ -166,10 +168,11 @@ namespace Human_Resources
                 {
                     olddepartmentname = Console.ReadLine();
                     Department department1 = humanresourcemanager.departments.Find(x => x.Name == olddepartmentname);
+                    //istifadeci terefinden verilen department adin sistemde olub olmadigini yoxlayir 
                     
                     if (department1 != null)
                     {
-                        Console.WriteLine($"{department1.Name} {department1.WorkerLimit} {department1.SalaryLimit}");
+                        Console.WriteLine($"\n Department adi:{department1.Name} \n Department WorkerLimit: {department1.WorkerLimit} \n Department SalaryLimit: {department1.SalaryLimit}");
                         Console.WriteLine("Departmentin yeni adini daxil edin:");
                         while (departmentNameLoop)
                         {
@@ -392,7 +395,7 @@ namespace Human_Resources
                         Employee currentemployee = item.employees.Find(x => x.No == editno);
                         if (currentemployee != null)
                         {
-                            Console.WriteLine($"{currentemployee.FullName},{currentemployee.Salary},{currentemployee.Position}");
+                            Console.WriteLine($"\n Ischinin ad ve soyadi:{currentemployee.FullName} \n Ishcinin emek haqqisi:{currentemployee.Salary} \n  Ishcinin vezifesi: {currentemployee.Position}");
                             Console.WriteLine("Iscinin yeni maasini daxil edin:");
                             while (newsalaryloop)
                             {
@@ -460,9 +463,10 @@ namespace Human_Resources
                 try
                 {
                     departmentname = Console.ReadLine();
-                    if (string.IsNullOrEmpty(departmentname) == false && departmentname.Length >= 2)
+                    Department removedepartment = humanResourceManager.departments.Find(x => x.Name == departmentname);
+                    if (string.IsNullOrEmpty(departmentname) == false && departmentname.Length >= 2 && removedepartment!=null)
                     {
-                        Department removedepartment = humanResourceManager.departments.Find(x => x.Name == departmentname);
+                       
                         Console.WriteLine("Ishcinin nomresini daxil edin:");
                         while (noloop)
                         {
