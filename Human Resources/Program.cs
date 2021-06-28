@@ -16,16 +16,17 @@ namespace Human_Resources
             HumanResourcemanager humanResourceManager = new HumanResourcemanager();
             do
             {
-                Console.WriteLine("Etmek Isdediyniz Emelliyyati Secin");
+                Console.WriteLine("Emeliyyat nomresini daxil edin:");
                 Console.WriteLine("------------------------------------");
                 Console.WriteLine("1.1 Departamentlerin siyahisini gostermek");
-                Console.WriteLine("1.2 Departamenet yaratmaq");
+                Console.WriteLine("1.2 Departament yaratmaq");
                 Console.WriteLine("1.3 Departamentde deyisiklik etmek");
                 Console.WriteLine("2.1 Iscilerin siyahisini gostermek");
                 Console.WriteLine("2.2 Departamentdeki iscilerin siyahisini gostermek");
                 Console.WriteLine("2.3 Isci elave etmek");
                 Console.WriteLine("2.4 Isci uzerinde deyisiklik etmek");
                 Console.WriteLine("2.5 Departamentden isci silinmesi ");
+                Console.WriteLine("---------------------------------------------");
                 string answer = Console.ReadLine();
 
                 switch (answer)
@@ -67,19 +68,20 @@ namespace Human_Resources
 
             foreach (Department item in humanResourceManager.departments)
             {
-                Console.WriteLine($"Department name: {item.Name}, Salary limit:{item.SalaryLimit}, Worker limit:{item.WorkerLimit},Avarage Salary:{item.CalcSalaryAvarege()}, Employees Count: {item.employees.Count}");
+                Console.WriteLine($"\n Department Name: {item.Name} \n Salary Limit:{item.SalaryLimit} \n Worker Limit:{item.WorkerLimit} \n Avarage Salary:{item.CalcSalaryAvarege()} \n Employees Count: {item.employees.Count}");
             }
+            // '\n' istifade ederek kodun alt-alta seliqeli yazilishi temin edilmishdir..
         }
 
         public static void AddDepartment(HumanResourcemanager humanResourceManager)
         {
             bool nameloop = true;
-            bool workerlimitloop = true;
-            bool salarylimitloop = true;
+            bool workerlimitLoop = true;
+            bool salarylimitLoop = true;
             string departmentname = "";
             int departmentworkerlimit = 0;
-            double departmentsalarylimit = 0;
-            Console.WriteLine("Departmentin adini daxil edin");
+            double departsalarylimit = 0;
+            Console.WriteLine("Yeni departmentin adini daxil edin:");
             while (nameloop)
             {
                 try
@@ -97,18 +99,18 @@ namespace Human_Resources
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Duzgun ad daxil et");
+                    Console.WriteLine("Yeniden cehd edin (Department adi minimum 2 herf olmalidir.)");
                 }
             }
-            Console.WriteLine("Departmentin Workerlimitin daxil edin");
-            while (workerlimitloop)
+            Console.WriteLine("Departmentin WorkerLimitin daxil edin:");
+            while (workerlimitLoop)
             {
                 try
                 {
                     departmentworkerlimit = int.Parse(Console.ReadLine());
                     if (departmentworkerlimit >= 1)
                     {
-                        workerlimitloop = false;
+                        workerlimitLoop = false;
                     }
                     else
                     {
@@ -118,18 +120,18 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun WorkerLimit daxil edin");
+                    Console.WriteLine("Yeniden cehd edin (minimum 1 ishci daxil edilmelidir)");
                 }
             }
-            Console.WriteLine("Departmentin Salarylimitin daxil edin");
-            while (salarylimitloop)
+            Console.WriteLine("Departmentin SalaryLimitin daxil edin:");
+            while (salarylimitLoop)
             {
                 try
                 {
-                    departmentsalarylimit = double.Parse(Console.ReadLine());
-                    if (departmentsalarylimit >= 250)
+                    departsalarylimit = double.Parse(Console.ReadLine());
+                    if (departsalarylimit >= 250)
                     {
-                        salarylimitloop = false;
+                        salarylimitLoop = false;
                     }
                     else
                     {
@@ -139,10 +141,10 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun SalaryLimit Daxil Edin");
+                    Console.WriteLine("Yeniden cehd edin ( Minimum 250 daxil edilmelidir)");
                 }
             }
-            Department department = new Department(departmentname, departmentworkerlimit, departmentsalarylimit);
+            Department department = new Department(departmentname, departmentworkerlimit, departsalarylimit);
             humanResourceManager.departments.Add(department);
 
         }
@@ -157,7 +159,7 @@ namespace Human_Resources
             bool departmentNameLoop = true;
             bool workerLimitLoop = true;
             bool salaryLimitLoop = true;
-            Console.WriteLine("Deyisdirmek istediyiniz Departmentin adin daxil edin.");
+            Console.WriteLine("Redakte edilecek Departmentin adini daxil edin:");
             while (oldloop)
             {
                 try
@@ -168,7 +170,7 @@ namespace Human_Resources
                     if (department1 != null)
                     {
                         Console.WriteLine($"{department1.Name} {department1.WorkerLimit} {department1.SalaryLimit}");
-                        Console.WriteLine("Departmentin yeni adini daxil edin.");
+                        Console.WriteLine("Departmentin yeni adini daxil edin:");
                         while (departmentNameLoop)
                         {
                             try
@@ -187,7 +189,7 @@ namespace Human_Resources
                             catch (Exception)
                             {
 
-                                Console.WriteLine("Duzgun yeni ad daxil edin.");
+                                Console.WriteLine("Yeniden cehd edin (Duzgun yeni ad daxil edin)");
                             }
 
                         }
@@ -210,7 +212,7 @@ namespace Human_Resources
                             catch (Exception)
                             {
 
-                                Console.WriteLine("Duzgun yeni workerlimit daxil edin.");
+                                Console.WriteLine("Yeniden cehd edin (Duzgun yeni workerlimit daxil edin)");
                             }
                         }
                         Console.WriteLine("Yeni SalaryLimit daxil edin.");
@@ -232,7 +234,7 @@ namespace Human_Resources
                             catch (Exception)
                             {
 
-                                Console.WriteLine("Duzgun Yeni salarylimit daxil edin.");
+                                Console.WriteLine("Yeniden cehd edin (Duzgun Yeni salarylimit daxil edin)");
                             }
                         }
                         oldloop = false;
@@ -246,7 +248,7 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun Departmentin adin daxil edin.");
+                    Console.WriteLine("Yeniden cehd edin (Duzgun Departmentin adin daxil edin)");
                 }
 
             }
@@ -260,21 +262,21 @@ namespace Human_Resources
             {
                 foreach(Employee employee in item.employees)
                 {
-                    Console.WriteLine($"{employee.No}, {employee.FullName}, {employee.DepartmentName}, {employee.Salary}");
+                    Console.WriteLine($"\n Iscinin Nomresi: {employee.No} \n Iscinin ad soyadi: {employee.FullName} \n Islediyi departmentin adi: {employee.DepartmentName} \n Emek haqqi: {employee.Salary}");
                 }
             }
         }
 
         public static void ShowDepartmentEmployees(HumanResourcemanager humanResourcemanager)
         {
-            Console.WriteLine("Isci siyahisi ucun departamentin adini yazin");
+            Console.WriteLine("Department adini daxil edin:");
             string departmentname = Console.ReadLine();
             Department department = humanResourcemanager.departments.Find(s => s.Name == departmentname);
             try
             {
                 foreach (Employee item in department.employees)
                 {
-                    Console.WriteLine($"{item.No},{item.Name},{item.SurName},{item.Position},{item.Salary}");
+                    Console.WriteLine($"\n Iscinin nomresi: {item.No} \n Iscinin ad soyadi: {item.FullName} \n Iscinin vezifesi: {item.Position} \n Emek haqqi: {item.Salary}");
                 }
             }
             catch (Exception)
@@ -286,9 +288,9 @@ namespace Human_Resources
 
         public static void AddEMployee(HumanResourcemanager humanResourcemanager)   
         {
-            Console.WriteLine("yeni iscinin adini  elave edin");
+            Console.WriteLine("Yeni iscinin adini  daxil edin:");
             string newemployename = Console.ReadLine();
-            Console.WriteLine("Yeni iscinin soyadini daxil edin");
+            Console.WriteLine("Yeni iscinin soyadini daxil edin:");
             string newemployeesurname = Console.ReadLine();
             
             string newemployeeposition = "";
@@ -297,7 +299,7 @@ namespace Human_Resources
             bool positionloop = true;
             bool salaryloop = true;
             bool departmentNameLoop = true;
-            Console.WriteLine("Yeni iscinin veifesini daxil edin:");
+            Console.WriteLine("Yeni iscinin vezifesini daxil edin:");
             while (positionloop)
             {
                 try
@@ -315,10 +317,10 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun yeni isci vezifesini daxil edin:");
+                    Console.WriteLine("Yeniden cehd edin (Vezife adi minimum 2 herfden ibaret olmalidir)");
                 }
             }
-            Console.WriteLine("yeni isci maasini daxil edin:");
+            Console.WriteLine("Yeni isci ucun emek haqqi daxil edin:");
             while (salaryloop)
             {
                 try
@@ -336,11 +338,11 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun yeni maasi yazin");
+                    Console.WriteLine("Yeniden cehd edin (Minimum emek haqqi 250 daxil edilmelidir)");
                 }
             }
 
-            Console.WriteLine("Yeni iscinin department adini daxil edin");
+            Console.WriteLine("Yeni iscinin department adini daxil edin:");
 
             while (departmentNameLoop)
             {
@@ -364,7 +366,7 @@ namespace Human_Resources
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Duzgun yeni iscinin department adini daxil edin.");
+                    Console.WriteLine("Yeniden cehd edin (Department adi minimum 2 herfden ibaret olmalidir)");
                 }
             }
         }
@@ -378,7 +380,7 @@ namespace Human_Resources
             double newsalary = 0;
             string newposition = "";
             
-            Console.WriteLine("Deyismek isteidyini iscinin No-un yazin");
+            Console.WriteLine("Redakte edeceyiniz iscinin 'Nomresi'ni daxil edin");
 
             while (noloop)
             {
@@ -391,7 +393,7 @@ namespace Human_Resources
                         if (currentemployee != null)
                         {
                             Console.WriteLine($"{currentemployee.FullName},{currentemployee.Salary},{currentemployee.Position}");
-                            Console.WriteLine("Iscinin yeni maasini daxil edin.");
+                            Console.WriteLine("Iscinin yeni maasini daxil edin:");
                             while (newsalaryloop)
                             {
                                 try
@@ -409,10 +411,10 @@ namespace Human_Resources
                                 }
                                 catch (Exception)
                                 {
-                                    Console.WriteLine(" iscinin yeni maasini Duzgun daxil edin.");
+                                    Console.WriteLine("Yeniden cehd edin (minimum emek haqqi 250 daxil edilmelidir)");
                                 }
                             }
-                            Console.WriteLine("Iscinin yeni vezifesini daxil edin.");
+                            Console.WriteLine("Iscinin yeni vezifesini daxil edin:");
                             while (newpositionloop)
                             {
                                 try
@@ -430,7 +432,7 @@ namespace Human_Resources
                                 }
                                 catch (Exception)
                                 {
-                                    Console.WriteLine("Iscinin yeni vezifesini Duzgun wdaxil edin.");
+                                    Console.WriteLine("Yeniden cehd edin (Vezife adi minimum 2 herfden ibaret olmalidir)");
                                 }
                             }
                         }
@@ -439,7 +441,7 @@ namespace Human_Resources
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Duzgun Nomre daxil edin.");
+                    Console.WriteLine("Yeniden cehd edin (Duzgun nomreni daxil edin)");
                 }
                 noloop = false;
             }
@@ -461,7 +463,7 @@ namespace Human_Resources
                     if (string.IsNullOrEmpty(departmentname) == false && departmentname.Length >= 2)
                     {
                         Department removedepartment = humanResourceManager.departments.Find(x => x.Name == departmentname);
-                        Console.WriteLine("Ishcinin nomresini yazin");
+                        Console.WriteLine("Ishcinin nomresini daxil edin:");
                         while (noloop)
                         {
                             try
@@ -483,7 +485,7 @@ namespace Human_Resources
                             }
                             catch (Exception)
                             {
-                                Console.WriteLine("Duzgun nomre daxil edin.");
+                                Console.WriteLine("Yeniden cehd edin (Duzgun nomre daxil edin)");
                             }
                         }
                         nameloop = false;
@@ -495,7 +497,7 @@ namespace Human_Resources
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Department adin duzgun daxil edin.");
+                    Console.WriteLine("Yeniden cehd edin (Department adin duzgun daxil edin)");
                 }
             }
 

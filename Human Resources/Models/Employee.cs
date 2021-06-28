@@ -31,7 +31,6 @@ namespace Human_Resources.Models
             FullName = Name + " " + SurName;  //FullName-i Name ve Surname bolmesini assign etmesi ucun verilmishdir..
             Count++;
 
-
             No = departmentname.ToString().Trim().ToUpper().Substring(0, 2) + Count.ToString(); // departament adinin ilk 2 herfinin gostermesi ucun !!!
 
         }
